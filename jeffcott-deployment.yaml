@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jeffcott-deployment
+  labels:
+    app: jeffcott
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jeffcott
+  template:
+    metadata:
+      labels:
+        app: jeffcott
+    spec:
+      containers:
+      - name: jeffcott
+        image: khaifahmi99/jeffcott-utilities-fe:1.2
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regkhaipriv

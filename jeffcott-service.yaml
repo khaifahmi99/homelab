@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jeffcott-service
+spec:
+  ports:
+    - name: http
+      port: 9999
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: jeffcott
+  type: LoadBalancer

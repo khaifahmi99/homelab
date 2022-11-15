@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordle-deployment
+  labels:
+    app: wordle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordle
+  template:
+    metadata:
+      labels:
+        app: wordle
+    spec:
+      containers:
+      - name: wordle
+        image: khaifahmi99/wordle:unlimited
+        ports:
+        - containerPort: 80
